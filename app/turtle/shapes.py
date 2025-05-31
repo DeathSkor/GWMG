@@ -1,7 +1,14 @@
 from turtle import *
 from time import sleep
 from math import *
-
+def efface_dessin(win):
+    """
+    Efface le dessin en cours
+    """
+    sleep(1)
+    win.clear()
+    reset()
+    speed(0)
 def draw_triangle(length, color):
     """
     Dessine un triangle équilatéral, longueur = length, couleur = color
@@ -62,13 +69,7 @@ def draw_koch_flakes(length, color, depth, count):
     for _ in range(count):
         draw_koch(length, color, depth)
         right(360 / count)
-def efface_dessin(win):
-    """
-    Efface le dessin en cours
-    """
-    sleep(1)
-    win.clear()
-    speed(0)
+
 def draw_petales(length, color):
     """
     Dessine un pétale, longueur = length, couleur = color
