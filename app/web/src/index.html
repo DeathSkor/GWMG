@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>GWMG</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header class="bg-primary py-4 mb-4">
+        <div class="titre">
+            <h1 class="text-center text-white display-4 fw-bold m-0">Générateur Web de Motifs Géométriques</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <form method="POST" action="/">
+                    <div class="mt-3">
+                        <h2>Carré</h2>
+                        <label for="squareInput1" class="form-label">Longueur :</label>
+                        <input type="number" class="form-control w-25 customInput" id="squareInput1" name="squareInput1"
+                            value="100" min="100" max="1000">
+                        <label for="squareColor" class="form-label mt-2">Couleur :</label>
+                        <input type="color" id="squareColor" class="form-control w-25 customRange" name="squareColor">
+                        <div class="form-check mt-2">
+                            <input type="checkbox" class="form-check-input" id="squareCheckbox" name="squareCheckbox">
+                            <label for="squareCheckbox" class="form-check-label">Activer</label>
+                        </div>
+                        <div id="squarehide" style="display:none;">
+                            <label for="squareAngle" class="form-label mt-2">Angle :</label>
+                            <input type="number" class="form-control w-25 customInput" id="squareAngle" name="squareAngle"
+                                value="45" min="0" max="360">
+                            <label for="squareCount" class="form-label mt-2">Nombre :</label>
+                            <input type="number" class="form-control w-25 customInput" id="squareCount" name="squareCount"
+                                value="8" min="1" max="50">
+                        </div>
+                        <div class="d-flex justify-content-start mt-3">
+                            <button type="submit" name="submit" value="square"
+                                class="btn btn-primary btn-lg px-5">Envoyer Carré</button>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <h2>Triangle</h2>
+                        <label for="triangleInput1" class="form-label">Longueur :</label>
+                        <input type="number" class="form-control w-25 customInput" id="triangleInput1" name="triangleInput1"
+                            value="100" min="100" max="1000">
+                        <label for="triangleColor" class="form-label mt-2">Couleur :</label>
+                        <input type="color" id="triangleColor" class="form-control w-25 customRange" name="triangleColor">
+                        <div class="form-check mt-2">
+                            <input type="checkbox" class="form-check-input" id="triangleCheckbox" name="triangleCheckbox">
+                            <label for="triangleCheckbox" class="form-check-label">Multiples</label>
+                        </div>
+                        <div id="trianglehide" style="display:none;">
+                            <label for="triangleAngle" class="form-label mt-2">Angle :</label>
+                            <input type="number" class="form-control w-25 customInput" id="triangleAngle" name="triangleAngle"
+                                value="45" min="0" max="360">
+                            <label for="triangleCount" class="form-label mt-2">Nombre :</label>
+                            <input type="number" class="form-control w-25 customInput" id="triangleCount" name="triangleCount"
+                                value="8" min="1" max="50">
+                        </div>
+                        <div class="d-flex justify-content-start mt-3">
+                            <button type="submit" name="submit" value="triangle"
+                                class="btn btn-success btn-lg px-5">Envoyer Triangle</button>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <h2>Courbe de Koch</h2>
+                        <label for="kochInput1" class="form-label">Longueur :</label>
+                        <input type="number" class="form-control w-25 customInput" id="kochInput1" name="kochInput1"
+                            value="100" min="100" max="1000">
+                        <label for="kochInput2" class="form-label mt-2">Profondeur :</label>
+                        <input type="number" class="form-control w-25 customInput" id="kochInput2" name="kochInput2"
+                            value="3" min="1" max="5">
+                        <label for="kochColor" class="form-label mt-2">Couleur :</label>
+                        <input type="color" id="kochColor" class="form-control w-25 customRange" name="kochColor">
+                        <div class="form-check mt-2">
+                            <input type="checkbox" class="form-check-input" id="kochCheckbox" name="kochCheckbox">
+                            <label for="kochCheckbox" class="form-check-label">Activer</label>
+                        </div>
+                        <div id="kochhide" style="display:none;">
+                            <label for="kochCount" class="form-label mt-2">Nombre :</label>
+                            <input type="number" class="form-control w-25 customInput" id="kochCount" name="kochCount"
+                                value="5" min="1" max="20">
+                        </div>
+                        <div class="d-flex justify-content-start mt-3">
+                            <button type="submit" name="submit" value="koch"
+                                class="btn btn-warning btn-lg px-5">Envoyer Koch</button>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <h2>Fleur</h2>
+                        <label for="flowerInput1" class="form-label">Longueur :</label>
+                        <input type="number" class="form-control w-25 customInput" id="flowerInput1" name="flowerInput1"
+                            value="100" min="100" max="1000">
+                        <label for="flowerColor" class="form-label mt-2">Couleur :</label>
+                        <input type="color" id="flowerColor" class="form-control w-25 customRange" name="flowerColor">
+                        <div class="form-check mt-2">
+                            <input type="checkbox" class="form-check-input" id="flowerCheckbox" name="flowerCheckbox">
+                            <label for="flowerCheckbox" class="form-check-label">Activer</label>
+                        </div>
+                        <div id="flowerhide" style="display:none;">
+                            <label for="flowerCount" class="form-label mt-2">Nombre :</label>
+                            <input type="number" class="form-control w-25 customInput" id="flowerCount" name="flowerCount"
+                                value="10" min="1" max="50">
+                        </div>
+                        <div class="d-flex justify-content-start mt-3">
+                            <button type="submit" name="submit" value="flower"
+                                class="btn btn-danger btn-lg px-5">Envoyer Fleur</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-5 d-flex align-items-start justify-content-center">
+                <div class="mb-4 mt-3">
+                    <img src="/output/result.png" alt="Résultat du dessin" class="img-fluid border rounded"
+                        style="max-width:400px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+<footer class="bg-light py-4 mt-5">
+    <div class="container">
+    </div>
+</footer>
+
+</html>

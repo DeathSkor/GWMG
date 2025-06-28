@@ -49,6 +49,7 @@ def draw_koch(length, color, depth):
     """
     Dessine une courbe de Koch, longueur = length, couleur = color, profondeur = depth
     """
+    pencolor(color)
     fillcolor(color)
     if depth == 0:
         forward(length)
@@ -66,6 +67,7 @@ def draw_koch_flakes(length, color, depth, count):
     """
     Dessine des flocons de neige de Koch, longueur = length, couleur = color, profondeur = depth, nombre = count
     """
+
     for _ in range(count):
         draw_koch(length, color, depth)
         right(360 / count)
