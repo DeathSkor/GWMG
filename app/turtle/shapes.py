@@ -13,7 +13,8 @@ def draw_triangle(length, color):
     """
     Dessine un triangle équilatéral, longueur = length, couleur = color
     """
-    fillcolor(color)
+    end_fill()
+    pencolor(color)
     begin_fill()
     for _ in range(3):
         forward(length)
@@ -31,8 +32,8 @@ def draw_square(length, color):
     """
     Dessine un carré, longueur = length, couleur = color
     """
-    fillcolor(color)
-    begin_fill()
+    end_fill()
+    pencolor(color)
     for _ in range(4):
         forward(length)
         left(90)
@@ -49,10 +50,13 @@ def draw_koch(length, color, depth):
     """
     Dessine une courbe de Koch, longueur = length, couleur = color, profondeur = depth
     """
+    pencolor(color)
     fillcolor(color)
     if depth == 0:
         forward(length)
     else:
+        # Divise la longueur par 3 pour chaque segment
+        
         length /= 3.0
         draw_koch(length, color, depth - 1)
         left(60)
@@ -66,14 +70,20 @@ def draw_koch_flakes(length, color, depth, count):
     """
     Dessine des flocons de neige de Koch, longueur = length, couleur = color, profondeur = depth, nombre = count
     """
+    penup()
+    pendown()
     for _ in range(count):
         draw_koch(length, color, depth)
         right(360 / count)
+    penup()
+    goto(0, 0)
+    pendown()
 
 def draw_petales(length, color):
     """
     Dessine un pétale, longueur = length, couleur = color
     """
+    pencolor(color)
     fillcolor(color)
     circle(length, 60)
     left(120)
@@ -87,3 +97,17 @@ def draw_flower(length, color, count):
         draw_petales(length, color)
         left(360 / count)
     end_fill()
+def draw_anything(lenght, color, sides):
+    """
+    Fonction qui permet de dessiner n'importe quel polygone grâce au flocon de Koch
+    """
+    draw_koch_flakes(lenght, color, 0, sides)
+def draw_anything_multiples(lenght, color, count, angle, sides):
+    """
+    Fonction qui permet de dessiner n'importe quel polygone grâce au flocon de Koch
+    """
+    for _ in range(count):
+        draw_anything(lenght, color, sides)
+        left(angle)
+
+    
