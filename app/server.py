@@ -51,7 +51,9 @@ def index():
                 
                 if switch: # En fonction de si l'utilisateur a coché la case ou non, on dessine une courbe de Koch ou plusieurs, ce qui permet de faire des flocons de neige
                     count = request.form.get('kochCount', type=int, default=6)
-                    goto(-200, 200) # On place la tortue en haut à gauche de l'écran pour dessiner les flocons de neige
+                    penup()
+                    goto(-200, 200)
+                    pendown()# On place la tortue en haut à gauche de l'écran pour dessiner les flocons de neige
                     draw_koch_flakes(length, color, depth, count)
                 else:
                     draw_koch(length, color, depth)
